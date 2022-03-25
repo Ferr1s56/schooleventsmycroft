@@ -53,6 +53,38 @@ class HelloWorldSkill(MycroftSkill):
         self.log.info("There are five types of log messages: "
                       "info, debug, warning, error, and exception.")
         self.speak_dialog("hello.world")
+    
+    @intent_handler('SchoolEvents.intent')
+    def handle_school_events_intent(self, message):
+        import random
+        import datetime
+
+        current_time = datetime.datetime.now()
+        day = current_time.day
+        month = current_time.month
+        current_date = str(month)+'/'+str(day)
+        schooleventslist = {
+            '3/25': ['Today is a test date for this program'],
+            '3/28': ['Today is Red and Blue Day'],
+            '3/30': ['Today is the last day of the third marking period'],
+            '4/13': ['Today is there is no school because it is the first day of spring break'],
+            '4/14': ['Today there is no school because of spring break'],
+            '4/15': ['Today there is no school because of spring break'],
+            '4/18': ['Today there is no school because of spring break'],
+            '4/27': ['Today there is an early dissmissal'],
+            '5/3': ['Today there is no school'],
+            '5/17': ['Today there is no school'],
+            '5/30': ['Today there is no school']
+        }
+
+
+        try:
+            todayevent = random.choice(schooleventslist[str(current_date)])
+        except:
+            todayevent = 'undefined'
+
+
+        self.speak(todayevent)
 
     def stop(self):
         pass
