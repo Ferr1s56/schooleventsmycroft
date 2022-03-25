@@ -81,7 +81,7 @@ class HelloWorldSkill(MycroftSkill):
         try:
             todayevent = random.choice(schooleventslist[str(current_date)])
         except:
-            todayevent = 'undefined'
+            todayevent = 'There is nothing going on at school today.'
 
 
         self.speak(todayevent)
