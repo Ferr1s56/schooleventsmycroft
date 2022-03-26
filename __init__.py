@@ -18,7 +18,7 @@
 from adapt.intent import IntentBuilder
 from mycroft import MycroftSkill, intent_handler
 
-class HelloWorldSkill(MycroftSkill):
+class ClassEventsSkill(MycroftSkill):
     def __init__(self):
         """ The __init__ method is called when the Skill is first constructed.
         It is often used to declare variables or perform setup actions, however
@@ -91,4 +91,4 @@ class HelloWorldSkill(MycroftSkill):
 
 
 def create_skill():
-    return HelloWorldSkill()
+    return ClassEventsSkill()
